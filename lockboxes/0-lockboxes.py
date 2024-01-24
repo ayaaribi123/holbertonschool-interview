@@ -1,25 +1,19 @@
-#!/usr/bin/python3
-"""
-Lockboxes
-"""
-
-
 def canUnlockAll(boxes):
     """
-    check if all the boxes can be opened.
+    Check if all the boxes can be opened.
     """
 
-    open = [False] * len(boxes)
-    open[0] = True
-    Res = [0]
+    is_open = [False] * len(boxes)
+    is_open[0] = True
 
+    to_visit = [0]
 
-    while Res:
-        current_box = Res.pop(0)
+    while to_visit:
+        current_box = to_visit.pop(0)
 
         for key in boxes[current_box]:
-            if 0 <= key < len(boxes) and not open[key]:
-                open[key] = True
-                Res.append(key)
+            if 0 <= key < len(boxes) and not is_open[key]:
+                is_open[key] = True
+                to_visit.append(key)
 
-    return all(open)
+    return all(is_open)
