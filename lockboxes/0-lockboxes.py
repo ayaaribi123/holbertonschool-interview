@@ -23,4 +23,3 @@ def canUnlockAll(boxes):
                 Res.append(key)
 
     return all(open)
-
